@@ -16,6 +16,7 @@ dfs(graph) {
     node.color = white;
     node.predecessor = null;
     node.d = 0;
+    node.f = 0;
   }
 
   for (node in graph.nodes) {
