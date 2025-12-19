@@ -33,12 +33,16 @@ dfs_visit(node) {
   for (adj_node in node.adj) {
     if (adj_node == node) {                         
       self_loops++;                           // self loop
-    } else if (adj_node.color == white) {
+    } 
+    else if (adj_node.color == white) {
       adj_node.predecessor = node;
 
       dfs_visit(adj_node);
-    } else if (adj_node.color == gray) {
-      cycles++;                               // cycle
+    } 
+    else if (adj_node.color == gray) {
+      if (adj_node != node.predecessor) { // <--- AGGIUNTA FONDAMENTALE per grafi non diretti
+        cycles++;      // cycle
+      }                             
     }
   }
 
